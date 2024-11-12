@@ -29,8 +29,8 @@ class Scorecard {
 
         // check if last game was strike
         if (this._frame > 1) {
+
             let previous_frame = this._game[this._frame - 2];
-            console.debug(previous_frame)
             
             if (previous_frame.isStrike) {
 
@@ -44,6 +44,7 @@ class Scorecard {
 
                         previous_previous_frame.totalPoints += first;
                         this._game[this._frame - 3] = previous_previous_frame;
+
                     }
 
                 }
@@ -58,9 +59,7 @@ class Scorecard {
         }
 
         // increment frame
-        console.debug("Frame over!")
         this._frame++;
-
     }
 };
 
