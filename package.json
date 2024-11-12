@@ -1,0 +1,21 @@
+{
+    "name": "javascript-challenge-bowling",
+    "version": "1.0.0",
+    "main": "scorecard.js",
+    "scripts": {
+      "test": "jest"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jamie6king/javascript_challenge_bowling.git"
+    },
+    "author": "Jamie King",
+    "bugs": {
+      "url": "https://github.com/jamie6king/javascript_challenge_bowling/issues"
+    },
+    "homepage": "https://github.com/jamie6king/javascript_challenge_bowling#readme",
+    "description": "The Makers bowling JavaScript challenge task.",
+    "dependencies": {
+      "jest": "^29.7.0"
+    }
+  }
