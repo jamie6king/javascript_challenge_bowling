@@ -3,6 +3,7 @@ class Scorecard {
     constructor() {
         this._game = [];
         this._frame = 1;
+        this._historicPoints = [];
     };
 
     calculateScore() {
@@ -11,6 +12,10 @@ class Scorecard {
             0,
         );
     };
+
+    historicScores() {
+        return this._historicPoints.map((points, index) => this._historicPoints.slice(0, index + 1).reduce((a, b) => a + b));
+    }
 
     showGame() {
         return this._game
@@ -35,6 +40,7 @@ class Scorecard {
             if (previous_frame.isStrike) {
 
                 previous_frame.totalPoints += first + second;
+                this._historicPoints[this._frame - 2] += first + second;
 
                 if (this._frame > 2) {
 
@@ -43,6 +49,7 @@ class Scorecard {
                     if (previous_previous_frame.isStrike) {
 
                         previous_previous_frame.totalPoints += first;
+                        this._historicPoints[this._frame - 3] += first;
                         this._game[this._frame - 3] = previous_previous_frame;
 
                     }
@@ -51,12 +58,15 @@ class Scorecard {
 
             } else if (previous_frame.isSpare) {
 
+                this._historicPoints[this._frame - 2] += first
                 previous_frame.totalPoints += first;
 
             };
 
             this._game[this._frame - 2] = previous_frame;
         }
+
+        this._historicPoints.push(first + second + third)
 
         // increment frame
         this._frame++;
